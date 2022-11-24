@@ -20,6 +20,9 @@ class Server {
         //Cors
         this.app.use( cors() );
 
+        // Lectura en Json
+        this.app.use( express.json());
+
         // Directorio Publico del Frontend
         //this.app.use( express.static('public'));
         

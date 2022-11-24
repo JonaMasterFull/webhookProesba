@@ -9,8 +9,11 @@ const webhookGet = (req, res = response) => {
 
 const webhookPost = (req, res) => {
 
+    const body = req.body;
+
     res.status(200).json({
-        msg: 'Post Api'
+        msg: 'Post Api',
+        body
     })
 }
 
