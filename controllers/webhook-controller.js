@@ -1,9 +1,11 @@
 const { response } = require('express')
 
 const webhookGet = (req, res = response) => {
+    const body = req.body;
 
     res.status(200).json({
-        msg: 'Get Api'
+        msg: 'Get Api',
+        body: body
     })
 }
 
