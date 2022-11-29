@@ -15,8 +15,7 @@ const webhookPost = async (req, res) => {
 
     res.status(200).json({
         msg: 'Post Api',
-        body,
-        data
+        body
     });
 
 }
