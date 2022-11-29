@@ -29,7 +29,6 @@ class Server {
     }
 
     routes(){
-
         this.app.use(this.webhookPath, require('../routes/webhook-routes'));
         
     }

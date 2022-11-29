@@ -1,17 +1,26 @@
-const { response } = require('express')
+const { response } = require('express');
+const CreatedOrder = require('../models/createdOrder');
 
 
-const webhookPost = (req, res) => {
+const webhookPost = async (req, res) => {
+
+    const createdOrder = new CreatedOrder();
 
     const body = req.body;
 
     console.log(body);
 
+    createdOrder.ViewStatusUpdate(body.status, body);
+
+
     res.status(200).json({
         msg: 'Post Api',
-        body
-    })
+        body,
+        data
+    });
+
 }
+
 
 module.exports = {
     webhookPost
