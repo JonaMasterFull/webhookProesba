@@ -5,11 +5,9 @@ class CreatedOrder {
         if (status === 'processing'){
             console.log('Si es Processing');
 
-            const datos = data.map((item) => {
-                item.id
-            })
-
-            console.log(datos);
+            const customerOrderNumber = data.id
+               
+            console.log(customerOrderNumber);
         }
         else {
             console.log('No es Processing');
