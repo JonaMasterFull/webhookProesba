@@ -2,12 +2,11 @@ const Tokens = require('./tokensIngram')
 
 const tokenID = new Tokens();
 
-const headersIngrams =  async() => {
+const headersIngrams = async() => {
     try{  const token = await tokenID.getTokens();
 
         let data = {
             headers: {
-              Accept: 'application/json',
               'Content-Type': 'application/json',
               'IM-CustomerNumber': '50-000060',
               'IM-CorrelationID': 'fbac82ba-cf0a-4bcf-fc03-0c5084',
@@ -27,4 +26,4 @@ const headersIngrams =  async() => {
 }
 
 
-module.exports = headersIngrams
+module.exports = { headersIngrams }
