@@ -2,7 +2,7 @@ const Tokens = require('./tokensIngram')
 
 const tokenID = new Tokens();
 
-const headersIngrams = async() => {
+const headersIngrams = async () => {
     try{  const token = await tokenID.getTokens();
 
         let data = {
@@ -26,4 +26,4 @@ const headersIngrams = async() => {
 }
 
 
-module.exports = { headersIngrams }
+module.exports = headersIngrams;
