@@ -74,7 +74,9 @@ class CreatedOrder {
 
       console.log("Ordenes Enviadas");
 
-      const enviar = await axios.post(this.url, datos, headers())
+      const config = await headers();
+
+      const enviar = await axios.post(this.url, datos, config)
 
       console.log(enviar);
 
