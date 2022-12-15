@@ -14,8 +14,6 @@ const headersIngrams = async () => {
               Authorization: `Bearer ${token}`,
             }
         }
-
-        console.log(data);
     
         return data;
 

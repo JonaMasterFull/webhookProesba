@@ -78,7 +78,9 @@ class CreatedOrder {
 
       const enviar = await axios.post(this.url, datos, config)
 
-      console.log(enviar.data);
+      console.log(enviar);
+
+      return enviar
 
     } else {
       console.log("Orden no Processing");
