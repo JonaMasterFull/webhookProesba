@@ -29,15 +29,5 @@ class Tokens {
 
 }
 
-const tokenNew = async () => {
-    const token = new Tokens();
-
-    const data = await token.getTokens();
-
-    console.log(data);
-}
-
-tokenNew()
-
 module.exports = Tokens;
 

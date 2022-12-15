@@ -1,9 +1,13 @@
 const axios = require("axios");
+const {headers} = require('./headersIngram');
 
 class CreatedOrder {
+
+  url = 'https://api.ingrammicro.com:443/resellers/v6/ordersss'
+
   async ViewStatusUpdate(status, data) {
     if (status === "processing") {
-      console.log("Si es Processing");
+      console.log("Orden en Processing");
 
       const customerOrderNumber = `RSF_${data.id}`;
       const notes = data.customer_note;
@@ -49,9 +53,33 @@ class CreatedOrder {
         };
       });
 
-      console.log(customerOrderNumber, notes, shipToInfo, lines);
+      //console.log(customerOrderNumber, notes, shipToInfo, lines);
+
+      let datos = {
+        customerOrderNumber: customerOrderNumber,
+        notes: notes,
+        shipToInfo: shipToInfo,
+        lines: lines,
+        additionalAttributes: [
+            {
+              "attributeName": "allowDuplicateCustomerOrderNumber",
+              "attributeValue": "false"
+            },
+            {
+              "attributeName": "allowOrderOnCustomerHold",
+              "attributeValue": "true"
+            },
+        ]
+      }
+
+      console.log("Ordenes Enviadas");
+
+      const enviar = await axios.post(this.url, datos, headers())
+
+      console.log(enviar);
+
     } else {
-      console.log("No es Processing");
+      console.log("Orden no Processing");
     }
   }
 
@@ -160,6 +188,9 @@ class CreatedOrder {
     }
     return state;
   }
+
 }
+
+
 
 module.exports = CreatedOrder;

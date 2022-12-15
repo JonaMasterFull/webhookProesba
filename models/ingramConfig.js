@@ -1,30 +1,29 @@
 const { axios } = require('axios');
-const Tokens = require('./tokensIngram');
+const Datas = require('./createdOrder');
+
 require('dotenv').config()
 
+const infoData = new Datas();
 
 class IngramConfig{
 
-    get headersOrders () {
-        
-        return { 
-            'IM-CustomerNumber': '50-000060',
-            'IM-CountryCode': 'MX',
-            'IM-CorrelationID': 'fbac82ba-cf0a-4bcf-fc03-0c5084',
-            Authorization: `${ process.env.TOKEN }`
-        }
+    async crearOrderIngram(){
+        const data = await infoData.ViewStatusUpdate()
+
+
+        console.log(data , ps);
     }
+
     
 }
 
-// const crear = async () => {
-//     const order = new IngramConfig();
+const crear = async () => {
+    const order = new IngramConfig();
 
-//     const l = order.headersOrders;
+    const l = await order.crearOrderIngram();
 
-//     console.log(l);
-// }
+}
 
-// crear()
+crear()
 
 module.exports = IngramConfig
