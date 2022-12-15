@@ -1,5 +1,5 @@
 const axios = require("axios");
-const headers = require('./headersIngram');
+const {headers} = require('./headersIngram');
 
 class CreatedOrder {
 
