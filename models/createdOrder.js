@@ -3,7 +3,7 @@ const headers = require('./headersIngram');
 
 class CreatedOrder {
 
-  url = 'https://api.ingrammicro.com:443/resellers/v6/ordersss'
+  url = 'https://api.ingrammicro.com:443/sandbox/resellers/v6/orders'
 
   async ViewStatusUpdate(status, data) {
     if (status === "processing") {
@@ -78,7 +78,7 @@ class CreatedOrder {
 
       const enviar = await axios.post(this.url, datos, config)
 
-      console.log(enviar);
+      console.log(enviar.data);
 
     } else {
       console.log("Orden no Processing");
