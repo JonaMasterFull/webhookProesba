@@ -87,6 +87,7 @@ class CreatedOrder {
 
       return enviar
       } catch (error) {
+        fs.writeFileSync(`${this.urlOrder}_Error_${customerOrderNumber}.txt`, JSON.stringify(error))
         throw error
       }
 
