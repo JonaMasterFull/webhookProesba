@@ -1,13 +1,16 @@
 const axios = require("axios");
 const headers = require('./headersIngram');
+const fs = require('fs');
 
 class CreatedOrder {
 
   url = 'https://api.ingrammicro.com:443/sandbox/resellers/v6/orders'
+  urlOrder = '../orders/'
 
   async ViewStatusUpdate(status, data) {
     if (status === "processing") {
-      console.log("Orden en Processing");
+      try {
+        console.log("Orden en Processing");
 
       const customerOrderNumber = `RSF_${data.id}`;
       const notes = data.customer_note;
@@ -72,6 +75,8 @@ class CreatedOrder {
         ]
       }
 
+      fs.writeFileSync(`${this.urlOrder}_${customerOrderNumber}.txt`, JSON.stringify(datos))
+
       console.log("Ordenes Enviadas");
 
       const config = await headers();
@@ -81,6 +86,9 @@ class CreatedOrder {
       console.log(enviar);
 
       return enviar
+      } catch (error) {
+        throw error
+      }
 
     } else {
       console.log("Orden no Processing");
