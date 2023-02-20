@@ -4,7 +4,7 @@ const fs = require('fs');
 
 class CreatedOrder {
 
-  url = 'https://api.ingrammicro.com:443/sandbox/resellers/v6/orders'
+  url = 'https://api.ingrammicro.com:443/resellers/v6/orders'
   urlOrder = '../orders/'
 
   async ViewStatusUpdate(status, data) {
