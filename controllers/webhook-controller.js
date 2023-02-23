@@ -8,14 +8,12 @@ const webhookPost = async (req, res) => {
 
     const body = req.body;
 
-    console.log(body);
-
-    createdOrder.ViewStatusUpdate(body.status, body);
+    const order = await createdOrder.ViewStatusUpdate(body.status, body);
 
 
     res.status(200).json({
         msg: 'Post Api',
-        body
+        body: order
     });
 
 }

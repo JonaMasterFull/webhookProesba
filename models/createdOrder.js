@@ -15,15 +15,15 @@ class CreatedOrder {
       const customerOrderNumber = `RSF_${data.id}`;
       const notes = data.customer_note;
 
-      const estado = this.EstadosUpdate(data.shipping.state);
+      const estado = this.EstadosUpdate(data.billing.state);
 
-      const postalCode = data.shipping.postcode.substring(0, 9);
-      const companyName = data.shipping.company.substring(0, 34);
+      const postalCode = data.billing.postcode.substring(0, 9);
+      const companyName = data.billing.company.substring(0, 34);
 
-      const contacto = `${data.shipping.first_name} ${data.shipping.last_name}`;
+      const contacto = `${data.billing.first_name} ${data.billing.last_name}`;
 
-      const direccion1 = data.shipping.address_1;
-      const direccion2 = data.shipping.address_2;
+      const direccion1 = data.billing.address_1;
+      const direccion2 = data.billing.address_2;
 
       let addressLine1 = "";
       let addressLine2 = "";
@@ -41,10 +41,10 @@ class CreatedOrder {
         companyName: companyName,
         addressLine1: addressLine1,
         addressLine2: addressLine2,
-        city: data.shipping.city,
+        city: data.billing.city,
         state: estado,
         postalCode: postalCode,
-        countryCode: data.shipping.country,
+        countryCode: data.billing.country,
         phoneNumber: data.billing.phone,
       };
 

@@ -3,7 +3,8 @@ const Tokens = require('./tokensIngram')
 const tokenID = new Tokens();
 
 const headersIngrams = async () => {
-    try{  const token = await tokenID.getTokens();
+    try{  
+        const token = await tokenID.getTokens();
 
         let data = {
             headers: {
